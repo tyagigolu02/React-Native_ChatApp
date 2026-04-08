@@ -10,6 +10,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useTheme } from '../../context/ThemeContext';
 import { useScreenTitle } from '../../context/ScreenTitleContext';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const AboutScreen = ({ navigation }) => {
   useScreenTitle('TranslaTalk | About');
@@ -102,12 +103,18 @@ const AboutScreen = ({ navigation }) => {
               Ready to start connecting?
             </Text>
             <TouchableOpacity
-              style={[styles.primaryButton, { backgroundColor: colors.primary }]}
               onPress={() => navigation.navigate('Login')}
             >
-              <Text style={styles.primaryButtonText}>
-                Get Started Today
-              </Text>
+              <LinearGradient
+                colors={['#667eea', '#764ba2']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.primaryButton}
+              >
+                <Text style={styles.primaryButtonText}>
+                  Get Started Today
+                </Text>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
         </View>
@@ -205,16 +212,22 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   primaryButton: {
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 8,
+    paddingVertical: 14,
+    paddingHorizontal: 36,
+    borderRadius: 12,
     alignItems: 'center',
-    marginTop: 12,
+    marginTop: 16,
+    elevation: 4,
+    shadowColor: '#667eea',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
   },
   primaryButtonText: {
     color: '#fff',
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '700',
+    letterSpacing: 0.5,
   },
   copyright: {
     alignItems: 'center',
