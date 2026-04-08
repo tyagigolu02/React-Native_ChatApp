@@ -52,7 +52,7 @@ const DevelopersScreen = ({ navigation }) => {
       image: require('../../../assets/Amit_Saini.jpg'),
       linkedin: 'https://www.linkedin.com/in/amit-saini-5b7858280/',
       color: '#10b981',
-      icon: 'storage',
+      icon: 'code-slash',
     },
     {
       id: '3',
@@ -230,20 +230,20 @@ const DevelopersScreen = ({ navigation }) => {
         </View>
 
         {/* Contribute Section */}
-        <View style={[styles.contributeSection, { backgroundColor: colors.primary }]}>
+        <View style={[styles.contributeSection, { backgroundColor: isDark ? colors.primary : '#2c3e50' }]}>
           <Ionicons name="rocket" size={40} color="#fff" style={{ marginBottom: 16 }} />
-          <Text style={styles.contributeTitle}>
+          <Text style={[styles.contributeTitle, { color: '#fff' }]}>
             Want to Contribute?
           </Text>
-          <Text style={styles.contributeText}>
+          <Text style={[styles.contributeText, { color: 'rgba(255,255,255,0.9)' }]}>
             We're always looking for talented individuals to join our mission. Feel free to reach out or contribute to our open-source project.
           </Text>
           <TouchableOpacity
-            style={styles.contributeButton}
+            style={[styles.contributeButton, { backgroundColor: '#fff' }]}
             onPress={() => navigation.navigate('Feedback')}
           >
-            <Ionicons name="paper-plane" size={18} color={colors.primary} style={{ marginRight: 8 }} />
-            <Text style={[styles.contributeButtonText, { color: colors.primary }]}>Get In Touch</Text>
+            <Ionicons name="paper-plane" size={18} color={isDark ? colors.primary : '#2c3e50'} style={{ marginRight: 8 }} />
+            <Text style={[styles.contributeButtonText, { color: isDark ? colors.primary : '#2c3e50' }]}>Get In Touch</Text>
           </TouchableOpacity>
         </View>
 
@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
   },
   cardIcon: {
     position: 'absolute',
-    top: 8,
+    top: -12,
     right: 16,
     backgroundColor: 'rgba(255,255,255,0.2)',
     padding: 8,
@@ -412,7 +412,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
     elevation: 3,
-    shadowColor: '#000',
+    shadowColor: '#851e86',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2,
     shadowRadius: 6,
