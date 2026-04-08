@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Linking,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useTheme } from '../../context/ThemeContext';
@@ -14,176 +13,103 @@ import { Ionicons } from '@expo/vector-icons';
 
 const AboutScreen = ({ navigation }) => {
   useScreenTitle('TranslaTalk | About');
-  const { colors } = useTheme();
+  const { colors, isDark } = useTheme();
 
-  const APP_VERSION = '1.0.0';
-  const BUILD_NUMBER = '100';
-
-  const handleOpenWebsite = () => {
-    Linking.openURL('https://translatalk.com');
-  };
-
-  const handleOpenGitHub = () => {
-    Linking.openURL('https://github.com/translatalk');
-  };
-
-  const handleOpenEmail = () => {
-    Linking.openURL('mailto:support@translatalk.com');
-  };
+  const features = [
+    'Real-time message translation',
+    'Support for 100+ languages',
+    'Voice and video calls',
+    'File sharing and media support',
+    'End-to-end encryption',
+    'Cross-platform compatibility',
+  ];
 
   return (
     <View style={[styles.container, { backgroundColor: colors.bgPrimary }]}>
       <StatusBar style={colors.isDark ? 'light' : 'dark'} />
 
-      {/* Header */}
-      <View style={[styles.header, { backgroundColor: colors.bgCard, borderBottomColor: colors.border }]}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Ionicons name="arrow-back" size={24} color={colors.textPrimary} />
-        </TouchableOpacity>
-        <Text style={[styles.headerTitle, { color: colors.textPrimary }]}>
-          About
-        </Text>
-      </View>
-
-      <ScrollView style={styles.scrollView}>
-        {/* App Info */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <View style={styles.logoContainer}>
-            <View style={[styles.logo, { backgroundColor: colors.primary }]}>
-              <Ionicons name="chatbubbles" size={48} color="#fff" />
-            </View>
-            <Text style={[styles.appName, { color: colors.textPrimary }]}>
-              TranslaTalk
-            </Text>
-            <Text style={[styles.tagline, { color: colors.textSecondary }]}>
-              Connect Beyond Language Barriers
-            </Text>
+      <ScrollView 
+        style={styles.scrollView} 
+        showsVerticalScrollIndicator={false}
+        scrollEnabled={true}
+        nestedScrollEnabled={true}
+      >
+        {/* Hero Section */}
+        <View style={[styles.heroSection, { backgroundColor: colors.bgCard }]}>
+          <View style={styles.iconContainer}>
+            <Ionicons name="chatbubbles" size={56} color={colors.primary} />
           </View>
-        </View>
-
-        {/* Version Info */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            Version Information
+          <Text style={[styles.heroTitle, { color: colors.textPrimary }]}>
+            TranslaTalk
           </Text>
-          <View style={[styles.infoRow, { borderBottomColor: colors.border }]}>
-            <Text style={[styles.infoLabel, { color: colors.textSecondary }]}>Version</Text>
-            <Text style={[styles.infoValue, { color: colors.textPrimary }]}>{APP_VERSION}</Text>
-          </View>
-          <View style={styles.infoRow}>
-            <Text style={[styles.infoLabel, { color: colors.textSecondary }]}>Build</Text>
-            <Text style={[styles.infoValue, { color: colors.textPrimary }]}>{BUILD_NUMBER}</Text>
-          </View>
-        </View>
-
-        {/* About Description */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            About TranslaTalk
-          </Text>
-          <Text style={[styles.description, { color: colors.textSecondary }]}>
-            TranslaTalk is a revolutionary messaging platform that breaks down language barriers 
-            through real-time translation. Chat with anyone, anywhere, in any language, and have 
-            your messages automatically translated for seamless communication.
+          <Text style={[styles.heroSubtitle, { color: colors.textSecondary }]}>
+            Breaking language barriers with seamless translation
           </Text>
         </View>
 
-        {/* Features */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            Key Features
-          </Text>
-          
-          <View style={styles.featureItem}>
-            <Ionicons name="language" size={24} color={colors.primary} />
-            <View style={styles.featureText}>
-              <Text style={[styles.featureTitle, { color: colors.textPrimary }]}>
-                Real-time Translation
-              </Text>
-              <Text style={[styles.featureDescription, { color: colors.textSecondary }]}>
-                Instant message translation in 100+ languages
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.featureItem}>
-            <Ionicons name="lock-closed" size={24} color={colors.primary} />
-            <View style={styles.featureText}>
-              <Text style={[styles.featureTitle, { color: colors.textPrimary }]}>
-                End-to-End Encryption
-              </Text>
-              <Text style={[styles.featureDescription, { color: colors.textSecondary }]}>
-                Your messages are secure and private
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.featureItem}>
-            <Ionicons name="people" size={24} color={colors.primary} />
-            <View style={styles.featureText}>
-              <Text style={[styles.featureTitle, { color: colors.textPrimary }]}>
-                Group Chats
-              </Text>
-              <Text style={[styles.featureDescription, { color: colors.textSecondary }]}>
-                Connect with multiple people at once
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.featureItem}>
-            <Ionicons name="shield-checkmark" size={24} color={colors.primary} />
-            <View style={styles.featureText}>
-              <Text style={[styles.featureTitle, { color: colors.textPrimary }]}>
-                Privacy Controls
-              </Text>
-              <Text style={[styles.featureDescription, { color: colors.textSecondary }]}>
-                Hidden chats, vault, and advanced privacy options
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        {/* Links */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            Links
-          </Text>
-
-          <TouchableOpacity
-            style={[styles.linkButton, { borderBottomColor: colors.border }]}
-            onPress={handleOpenWebsite}
-          >
-            <Ionicons name="globe-outline" size={20} color={colors.primary} />
-            <Text style={[styles.linkText, { color: colors.textPrimary }]}>
-              Visit Website
+        {/* Content Card */}
+        <View style={[styles.card, { backgroundColor: colors.bgCard }]}>
+          {/* Mission Section */}
+          <View style={styles.section}>
+            <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
+              Our Mission
             </Text>
-            <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.linkButton, { borderBottomColor: colors.border }]}
-            onPress={handleOpenGitHub}
-          >
-            <Ionicons name="logo-github" size={20} color={colors.primary} />
-            <Text style={[styles.linkText, { color: colors.textPrimary }]}>
-              GitHub Repository
+            <Text style={[styles.sectionText, { color: colors.textSecondary }]}>
+              TranslaTalk aims to connect people across the globe by eliminating language barriers. Our advanced translation technology ensures that conversations flow naturally, regardless of the languages spoken.
             </Text>
-            <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.linkButton}
-            onPress={handleOpenEmail}
-          >
-            <Ionicons name="mail-outline" size={20} color={colors.primary} />
-            <Text style={[styles.linkText, { color: colors.textPrimary }]}>
-              Contact Support
+            <Text style={[styles.sectionText, { color: colors.textSecondary, marginTop: 12 }]}>
+              We believe that communication should be universal, and every person should be able to express themselves freely and be understood by others.
             </Text>
-            <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
-          </TouchableOpacity>
+          </View>
+
+          {/* Features Section */}
+          <View style={[styles.section, { borderTopWidth: 1, borderTopColor: colors.border, paddingTop: 16 }]}>
+            <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
+              Key Features
+            </Text>
+            {features.map((feature, index) => (
+              <View key={index} style={styles.featureItem}>
+                <Ionicons name="checkmark" size={16} color="#10b981" />
+                <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                  {feature}
+                </Text>
+              </View>
+            ))}
+          </View>
+
+          {/* Team Section */}
+          <View style={[styles.section, { borderTopWidth: 1, borderTopColor: colors.border, paddingTop: 16, alignItems: 'center' }]}>
+            <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
+              Meet Our Team
+            </Text>
+            <Text style={[styles.sectionText, { color: colors.textSecondary, textAlign: 'center', marginBottom: 16 }]}>
+              TranslaTalk is built by a passionate team of developers dedicated to breaking language barriers.
+            </Text>
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: isDark ? colors.bgInput : '#f0f0f0', borderColor: colors.border, borderWidth: 1 }]}
+              onPress={() => navigation.navigate('Developers')}
+            >
+              <Ionicons name="people" size={18} color={colors.primary} style={{ marginRight: 8 }} />
+              <Text style={[styles.buttonText, { color: colors.textPrimary }]}>
+                View Our Team
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Get Started Section */}
+          <View style={[styles.section, { borderTopWidth: 1, borderTopColor: colors.border, paddingTop: 16, alignItems: 'center' }]}>
+            <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
+              Ready to start connecting?
+            </Text>
+            <TouchableOpacity
+              style={[styles.primaryButton, { backgroundColor: colors.primary }]}
+              onPress={() => navigation.navigate('Login')}
+            >
+              <Text style={styles.primaryButtonText}>
+                Get Started Today
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Copyright */}
@@ -205,100 +131,90 @@ const AboutScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    paddingTop: 48,
-    borderBottomWidth: 1,
-  },
-  backButton: {
-    marginRight: 16,
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '600',
+    ...(typeof document !== 'undefined' && {
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+    }),
   },
   scrollView: {
     flex: 1,
+    ...(typeof document !== 'undefined' && {
+      maxHeight: 'calc(100vh - 20px)',
+      overflowY: 'auto',
+    }),
   },
-  section: {
+  heroSection: {
+    alignItems: 'center',
+    paddingVertical: 32,
+    paddingHorizontal: 16,
     marginBottom: 12,
-    padding: 16,
   },
-  logoContainer: {
-    alignItems: 'center',
-    paddingVertical: 24,
-  },
-  logo: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
+  iconContainer: {
     marginBottom: 16,
   },
-  appName: {
-    fontSize: 28,
+  heroTitle: {
+    fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 8,
+    textAlign: 'center',
   },
-  tagline: {
-    fontSize: 14,
-    fontStyle: 'italic',
+  heroSubtitle: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  card: {
+    marginHorizontal: 12,
+    marginBottom: 12,
+    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  section: {
+    padding: 16,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '600',
     marginBottom: 12,
   },
-  infoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-  },
-  infoLabel: {
+  sectionText: {
     fontSize: 14,
-  },
-  infoValue: {
-    fontSize: 14,
-    fontWeight: '500',
-  },
-  description: {
-    fontSize: 14,
-    lineHeight: 22,
+    lineHeight: 21,
   },
   featureItem: {
     flexDirection: 'row',
-    marginBottom: 16,
-    gap: 12,
+    alignItems: 'flex-start',
+    marginVertical: 8,
+    gap: 10,
   },
   featureText: {
-    flex: 1,
-  },
-  featureTitle: {
     fontSize: 14,
-    fontWeight: '600',
-    marginBottom: 4,
+    flex: 1,
+    paddingTop: 1,
   },
-  featureDescription: {
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  linkButton: {
+  button: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 12,
-    borderBottomWidth: 1,
-    gap: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
   },
-  linkText: {
-    flex: 1,
+  buttonText: {
     fontSize: 14,
     fontWeight: '500',
+  },
+  primaryButton: {
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 12,
+  },
+  primaryButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '600',
   },
   copyright: {
     alignItems: 'center',
@@ -306,7 +222,7 @@ const styles = StyleSheet.create({
   },
   copyrightText: {
     fontSize: 12,
-    marginBottom: 4,
+    marginBottom: 6,
     textAlign: 'center',
   },
   bottomSpacer: {

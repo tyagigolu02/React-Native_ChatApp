@@ -4,7 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { VIEW_TYPES } from './utils/loginData';
 
 const ViewSwitcher = ({ currentView, onViewChange }) => {
-  const { colors } = useTheme();
+  const { colors, isDark } = useTheme();
 
   const tabs = [
     { id: VIEW_TYPES.LOGIN, label: 'Sign In' },
@@ -20,14 +20,14 @@ const ViewSwitcher = ({ currentView, onViewChange }) => {
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.gray200 }]}>
+    <View style={[styles.container, { backgroundColor: colors.bgInput }]}>
       {tabs.map((tab) => (
         <TouchableOpacity
           key={tab.id}
           style={[
             styles.tab,
             currentView === tab.id && {
-              backgroundColor: '#fff',
+              backgroundColor: isDark ? colors.bgCard : '#fff',
               ...styles.activeTab,
             },
           ]}
@@ -38,7 +38,7 @@ const ViewSwitcher = ({ currentView, onViewChange }) => {
               styles.tabText,
               {
                 color:
-                  currentView === tab.id ? colors.gray900 : colors.gray600,
+                  currentView === tab.id ? colors.textPrimary : colors.textSecondary,
               },
             ]}
           >

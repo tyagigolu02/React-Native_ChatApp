@@ -318,28 +318,28 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: 4,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 15,
-    marginBottom: 24,
+    fontSize: 14,
+    marginBottom: 20,
     textAlign: 'center',
   },
   row: {
     flexDirection: 'row',
     gap: 12,
-    marginBottom: 4,
+    marginBottom: 12,
   },
   halfField: {
     flex: 1,
   },
   label: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '500',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   labelRow: {
     flexDirection: 'row',
@@ -348,12 +348,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   input: {
-    height: 50,
+    height: 45,
     borderWidth: 1,
     borderRadius: 10,
-    paddingHorizontal: 16,
-    fontSize: 16,
-    marginBottom: 4,
+    paddingHorizontal: 14,
+    fontSize: 15,
+    marginBottom: 2,
   },
   passwordContainer: {
     position: 'relative',
@@ -383,12 +383,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   button: {
-    height: 50,
+    height: 48,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 16,
-    marginBottom: 16,
+    marginTop: 12,
+    marginBottom: 12,
   },
   buttonHover: {
     opacity: 0.85,
@@ -396,19 +396,20 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
   },
   switchView: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 4,
   },
   switchText: {
-    fontSize: 15,
+    fontSize: 13,
   },
   switchLink: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '600',
   },
   switchLinkHover: {

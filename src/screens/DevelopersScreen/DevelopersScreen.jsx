@@ -5,8 +5,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Image,
   Linking,
+  Image,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useTheme } from '../../context/ThemeContext';
@@ -15,183 +15,235 @@ import { Ionicons } from '@expo/vector-icons';
 
 const DevelopersScreen = ({ navigation }) => {
   useScreenTitle('TranslaTalk | Developers');
-  const { colors } = useTheme();
+  const { colors, isDark } = useTheme();
+
+  const guide = {
+    name: 'Vikas Shrivastva',
+    role: 'Project Guide',
+    designation: 'HoD, CSE Department',
+    college: 'MIET Meerut',
+    bio: 'Guiding and mentoring the team with expertise in software engineering and academic excellence.',
+    image: require('../../../assets/VK.jpg'),
+    linkedin: 'https://www.linkedin.com/in/dr-vikas-srivastava-540552ab',
+    color: '#f59e0b',
+    icon: 'school',
+  };
 
   const developers = [
     {
       id: '1',
-      name: 'Alice Johnson',
-      role: 'Lead Developer',
-      avatar: null,
-      bio: 'Full-stack developer with passion for real-time communication',
-      github: 'https://github.com/alicejohnson',
-      linkedin: 'https://linkedin.com/in/alicejohnson',
-      twitter: 'https://twitter.com/alicejohnson',
+      name: 'Deepanshu Tyagi',
+      role: 'Frontend Developer & QA Tester',
+      designation: 'Student, CSE Department',
+      bio: 'Crafting intuitive user interfaces and ensuring top-notch quality through rigorous testing.',
+      skills: ['React', 'JavaScript', 'TailwindCSS', 'Testing', 'UI/UX Design', 'Figma'],
+      image: require('../../../assets/tyagi.jpg'),
+      linkedin: 'https://www.linkedin.com/in/tyagigolu02/',
+      color: '#3b82f6',
+      icon: 'brush',
     },
     {
       id: '2',
-      name: 'Bob Smith',
-      role: 'Backend Engineer',
-      avatar: null,
-      bio: 'Specializing in scalable distributed systems and APIs',
-      github: 'https://github.com/bobsmith',
-      linkedin: 'https://linkedin.com/in/bobsmith',
+      name: 'Amit Saini',
+      role: 'Backend & Database Developer',
+      designation: 'Student, CSE Department',
+      bio: 'Building robust backend systems and managing efficient database architectures for seamless data flow.',
+      skills: ['Django', 'Python', 'PostgreSQL', 'MongoDB'],
+      image: require('../../../assets/Amit_Saini.jpg'),
+      linkedin: 'https://www.linkedin.com/in/amit-saini-5b7858280/',
+      color: '#10b981',
+      icon: 'storage',
     },
     {
       id: '3',
-      name: 'Carol White',
-      role: 'Frontend Developer',
-      avatar: null,
-      bio: 'React Native expert building beautiful mobile experiences',
-      github: 'https://github.com/carolwhite',
-      twitter: 'https://twitter.com/carolwhite',
+      name: 'Dev Arya',
+      role: 'Backend & DevOps Engineer',
+      designation: 'Student, CSE Department',
+      bio: 'Developing powerful backend APIs and ensuring smooth deployments with modern DevOps practices.',
+      skills: ['Django', 'Python', 'Docker', 'Deployment'],
+      image: require('../../../assets/Dev_Arya.jpg'),
+      linkedin: 'https://www.linkedin.com/in/dev-arya/',
+      color: '#8b5cf6',
+      icon: 'server',
     },
     {
       id: '4',
-      name: 'David Brown',
-      role: 'UI/UX Designer',
-      avatar: null,
-      bio: 'Creating intuitive and delightful user experiences',
-      linkedin: 'https://linkedin.com/in/davidbrown',
-      twitter: 'https://twitter.com/davidbrown',
-    },
+      name: 'Ankit Kumar',
+      role: 'Frontend Developer & Documentation',
+      designation: 'Student, CSE Department',
+      bio: 'Ensuring comprehensive project documentation and contributing to frontend development for an enhanced user experience.',
+      skills: ['React', 'Markdown', 'Technical Writing', 'CSS3', 'HTML5'],
+      image: require('../../../assets/Ankit_Kumar.jpg'),
+      linkedin: 'https://www.linkedin.com/in/ankit-kumar-4300b425b/',
+      color: '#f97316',
+      icon: 'document',
+    }
   ];
 
-  const handleOpenLink = (url) => {
-    if (url) {
-      Linking.openURL(url);
-    }
-  };
+  const stats = [
+    { value: '4', label: 'Team Members' },
+    { value: '10+', label: 'Languages' },
+    { value: '1', label: 'Mission' },
+  ];
 
   return (
     <View style={[styles.container, { backgroundColor: colors.bgPrimary }]}>
       <StatusBar style={colors.isDark ? 'light' : 'dark'} />
 
-      {/* Header */}
-      <View style={[styles.header, { backgroundColor: colors.bgCard, borderBottomColor: colors.border }]}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Ionicons name="arrow-back" size={24} color={colors.textPrimary} />
-        </TouchableOpacity>
-        <Text style={[styles.headerTitle, { color: colors.textPrimary }]}>
-          Developers
-        </Text>
-      </View>
-
-      <ScrollView style={styles.scrollView}>
-        {/* Introduction */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.introTitle, { color: colors.textPrimary }]}>
-            Meet the Team
+      <ScrollView 
+        style={styles.scrollView} 
+        scrollEnabled={true}
+        nestedScrollEnabled={true}
+      >
+        {/* Hero Section */}
+        <View style={[styles.heroSection, { backgroundColor: colors.bgCard }]}>
+          <Text style={[styles.badge, { backgroundColor: isDark ? 'rgba(102,126,234,0.1)' : 'rgba(102,126,234,0.1)', color: colors.primary }]}>
+            <Ionicons name="people" size={16} /> Our Amazing Team
           </Text>
-          <Text style={[styles.introText, { color: colors.textSecondary }]}>
-            TranslaTalk is built by a passionate team of developers dedicated to breaking down 
-            language barriers and connecting people worldwide.
+          
+          <Text style={[styles.heroTitle, { color: colors.textPrimary }]}>
+            The Minds Behind{'\n'}TranslaTalk
           </Text>
-        </View>
+          
+          <Text style={[styles.heroSubtitle, { color: colors.textSecondary }]}>
+            Meet the talented developers who brought this project to life. We're passionate about breaking language barriers and connecting people worldwide.
+          </Text>
 
-        {/* Developers List */}
-        {developers.map((dev) => (
-          <View
-            key={dev.id}
-            style={[styles.developerCard, { backgroundColor: colors.bgCard }]}
-          >
-            <View style={styles.developerHeader}>
-              {dev.avatar ? (
-                <Image source={{ uri: dev.avatar }} style={styles.avatar} />
-              ) : (
-                <View style={[styles.avatarPlaceholder, { backgroundColor: colors.primary }]}>
-                  <Text style={styles.avatarText}>
-                    {dev.name.split(' ').map(n => n[0]).join('')}
-                  </Text>
-                </View>
-              )}
-
-              <View style={styles.developerInfo}>
-                <Text style={[styles.developerName, { color: colors.textPrimary }]}>
-                  {dev.name}
+          {/* Stats */}
+          <View style={styles.statsContainer}>
+            {stats.map((stat, index) => (
+              <View key={index} style={styles.statItem}>
+                <Text style={[styles.statValue, { color: colors.textPrimary }]}>
+                  {stat.value}
                 </Text>
-                <Text style={[styles.developerRole, { color: colors.primary }]}>
-                  {dev.role}
+                <Text style={[styles.statLabel, { color: colors.textSecondary }]}>
+                  {stat.label}
                 </Text>
               </View>
-            </View>
-
-            <Text style={[styles.developerBio, { color: colors.textSecondary }]}>
-              {dev.bio}
-            </Text>
-
-            <View style={styles.socialLinks}>
-              {dev.github && (
-                <TouchableOpacity
-                  style={[styles.socialButton, { backgroundColor: colors.bgSecondary }]}
-                  onPress={() => handleOpenLink(dev.github)}
-                >
-                  <Ionicons name="logo-github" size={20} color={colors.textPrimary} />
-                </TouchableOpacity>
-              )}
-              {dev.linkedin && (
-                <TouchableOpacity
-                  style={[styles.socialButton, { backgroundColor: colors.bgSecondary }]}
-                  onPress={() => handleOpenLink(dev.linkedin)}
-                >
-                  <Ionicons name="logo-linkedin" size={20} color={colors.textPrimary} />
-                </TouchableOpacity>
-              )}
-              {dev.twitter && (
-                <TouchableOpacity
-                  style={[styles.socialButton, { backgroundColor: colors.bgSecondary }]}
-                  onPress={() => handleOpenLink(dev.twitter)}
-                >
-                  <Ionicons name="logo-twitter" size={20} color={colors.textPrimary} />
-                </TouchableOpacity>
-              )}
-            </View>
+            ))}
           </View>
-        ))}
+        </View>
 
-        {/* Technologies */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            Technologies We Use
+        {/* Guide Section */}
+        <View style={styles.guideSection}>
+          <Text style={[styles.sectionLabel, { color: colors.textSecondary }]}>
+            PROJECT GUIDE
           </Text>
+          
+          <View style={[styles.card, { backgroundColor: colors.bgCard }]}>
+            {/* Gradient Header */}
+            <View style={[styles.cardGradientHeader, { backgroundColor: guide.color }]} />
+            
+            <View style={styles.cardHeader}>
+              <Image
+                source={guide.image}
+                style={[styles.cardAvatar, { borderColor: colors.bgCard }]}
+              />
+              <Ionicons name={guide.icon} size={24} color={guide.color} style={styles.cardIcon} />
+            </View>
 
-          <View style={styles.techGrid}>
-            <View style={[styles.techItem, { backgroundColor: colors.bgSecondary }]}>
-              <Ionicons name="logo-react" size={32} color="#61dafb" />
-              <Text style={[styles.techName, { color: colors.textPrimary }]}>React Native</Text>
-            </View>
-            <View style={[styles.techItem, { backgroundColor: colors.bgSecondary }]}>
-              <Ionicons name="logo-nodejs" size={32} color="#68a063" />
-              <Text style={[styles.techName, { color: colors.textPrimary }]}>Node.js</Text>
-            </View>
-            <View style={[styles.techItem, { backgroundColor: colors.bgSecondary }]}>
-              <Ionicons name="server" size={32} color={colors.primary} />
-              <Text style={[styles.techName, { color: colors.textPrimary }]}>MongoDB</Text>
-            </View>
-            <View style={[styles.techItem, { backgroundColor: colors.bgSecondary }]}>
-              <Ionicons name="cloud" size={32} color={colors.primary} />
-              <Text style={[styles.techName, { color: colors.textPrimary }]}>AWS</Text>
+            <View style={styles.cardContent}>
+              <Text style={[styles.cardName, { color: colors.textPrimary }]}>
+                {guide.name}
+              </Text>
+              <Text style={[styles.cardRole, { color: guide.color }]}>
+                {guide.role}
+              </Text>
+              <Text style={[styles.cardDesignation, { color: colors.textSecondary }]}>
+                {guide.designation}, {guide.college}
+              </Text>
+              
+              <Text style={[styles.cardBio, { color: colors.textSecondary }]}>
+                {guide.bio}
+              </Text>
+
+              <TouchableOpacity
+                style={[styles.socialLink, { borderTopColor: colors.border }]}
+                onPress={() => Linking.openURL(guide.linkedin)}
+              >
+                <Ionicons name="logo-linkedin" size={18} color={guide.color} />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
 
-        {/* Contribute */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
+        {/* Development Team Section */}
+        <View style={styles.teamSection}>
+          <Text style={[styles.sectionLabel, { color: colors.textSecondary }]}>
+            DEVELOPMENT TEAM
+          </Text>
+          
+          {developers.map((dev) => (
+            <View key={dev.id} style={[styles.card, { backgroundColor: colors.bgCard }]}>
+              {/* Gradient Header */}
+              <View style={[styles.cardGradientHeader, { backgroundColor: dev.color }]} />
+              
+              <View style={styles.cardHeader}>
+                <Image
+                  source={dev.image}
+                  style={[styles.cardAvatar, { borderColor: colors.bgCard }]}
+                />
+                <Ionicons name={dev.icon} size={24} color={dev.color} style={styles.cardIcon} />
+              </View>
+
+              <View style={styles.cardContent}>
+                <Text style={[styles.cardName, { color: colors.textPrimary }]}>
+                  {dev.name}
+                </Text>
+                <Text style={[styles.cardRole, { color: dev.color }]}>
+                  {dev.role}
+                </Text>
+                <Text style={[styles.cardDesignation, { color: colors.textSecondary }]}>
+                  {dev.designation}
+                </Text>
+                
+                <Text style={[styles.cardBio, { color: colors.textSecondary }]}>
+                  {dev.bio}
+                </Text>
+
+                {/* Skills */}
+                <View style={styles.skillsContainer}>
+                  {dev.skills.map((skill, idx) => (
+                    <View 
+                      key={idx} 
+                      style={[
+                        styles.skillTag,
+                        { backgroundColor: isDark ? `${dev.color}20` : `${dev.color}15` }
+                      ]}
+                    >
+                      <Text style={[styles.skillText, { color: dev.color }]}>
+                        {skill}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
+
+                <TouchableOpacity
+                  style={[styles.socialLink, { borderTopColor: colors.border }]}
+                  onPress={() => Linking.openURL(dev.linkedin)}
+                >
+                  <Ionicons name="logo-linkedin" size={18} color={dev.color} />
+                </TouchableOpacity>
+              </View>
+            </View>
+          ))}
+        </View>
+
+        {/* Contribute Section */}
+        <View style={[styles.contributeSection, { backgroundColor: colors.primary }]}>
+          <Ionicons name="rocket" size={40} color="#fff" style={{ marginBottom: 16 }} />
+          <Text style={styles.contributeTitle}>
             Want to Contribute?
           </Text>
-          <Text style={[styles.contributeText, { color: colors.textSecondary }]}>
-            TranslaTalk is open source! We welcome contributions from developers around the world.
+          <Text style={styles.contributeText}>
+            We're always looking for talented individuals to join our mission. Feel free to reach out or contribute to our open-source project.
           </Text>
           <TouchableOpacity
-            style={[styles.contributeButton, { backgroundColor: colors.primary }]}
-            onPress={() => handleOpenLink('https://github.com/translatalk/react-native-chatapp')}
+            style={styles.contributeButton}
+            onPress={() => navigation.navigate('Feedback')}
           >
-            <Ionicons name="logo-github" size={20} color="#fff" />
-            <Text style={styles.contributeButtonText}>View on GitHub</Text>
+            <Ionicons name="paper-plane" size={18} color={colors.primary} style={{ marginRight: 8 }} />
+            <Text style={[styles.contributeButtonText, { color: colors.primary }]}>Get In Touch</Text>
           </TouchableOpacity>
         </View>
 
@@ -205,130 +257,189 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    paddingTop: 48,
-    borderBottomWidth: 1,
-  },
-  backButton: {
-    marginRight: 16,
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
   scrollView: {
     flex: 1,
+    ...(typeof document !== 'undefined' && {
+      maxHeight: 'calc(100vh)',
+      overflowY: 'auto',
+    }),
   },
-  section: {
+  heroSection: {
+    paddingVertical: 32,
+    paddingHorizontal: 16,
+    alignItems: 'center',
     marginBottom: 12,
-    padding: 16,
   },
-  introTitle: {
-    fontSize: 24,
+  badge: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    fontSize: 12,
+    fontWeight: '500',
+    marginBottom: 16,
+    alignSelf: 'center',
+  },
+  heroTitle: {
+    fontSize: 32,
     fontWeight: 'bold',
+    textAlign: 'center',
     marginBottom: 12,
   },
-  introText: {
-    fontSize: 14,
+  heroSubtitle: {
+    fontSize: 15,
+    textAlign: 'center',
+    marginBottom: 24,
     lineHeight: 22,
   },
-  developerCard: {
-    marginBottom: 12,
-    padding: 16,
-  },
-  developerHeader: {
+  statsContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  avatar: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    marginRight: 12,
-  },
-  avatarPlaceholder: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
     justifyContent: 'center',
+    gap: 24,
     alignItems: 'center',
-    marginRight: 12,
+    width: '100%',
   },
-  avatarText: {
+  statItem: {
+    alignItems: 'center',
+  },
+  statValue: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  developerInfo: {
-    flex: 1,
-  },
-  developerName: {
-    fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 4,
   },
-  developerRole: {
-    fontSize: 14,
-    fontWeight: '500',
+  statLabel: {
+    fontSize: 12,
   },
-  developerBio: {
-    fontSize: 14,
-    lineHeight: 20,
+  guideSection: {
+    paddingHorizontal: 12,
     marginBottom: 12,
   },
-  socialLinks: {
-    flexDirection: 'row',
-    gap: 8,
+  teamSection: {
+    paddingHorizontal: 12,
+    marginBottom: 12,
   },
-  socialButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+  sectionLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: 12,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
   },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  card: {
+    borderRadius: 16,
     marginBottom: 16,
+    overflow: 'hidden',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
-  techGrid: {
+  cardGradientHeader: {
+    height: 96,
+    opacity: 0.7,
+  },
+  cardHeader: {
+    paddingHorizontal: 16,
+    alignItems: 'flex-start',
+    position: 'relative',
+    marginTop: -48,
+    marginBottom: 12,
+    zIndex: 1,
+  },
+  cardAvatar: {
+    width: 96,
+    height: 96,
+    borderRadius: 16,
+    borderWidth: 4,
+  },
+  cardIcon: {
+    position: 'absolute',
+    top: 8,
+    right: 16,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    padding: 8,
+    borderRadius: 12,
+  },
+  cardContent: {
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+  },
+  cardName: {
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 4,
+  },
+  cardRole: {
+    fontSize: 13,
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  cardDesignation: {
+    fontSize: 12,
+    marginBottom: 12,
+  },
+  cardBio: {
+    fontSize: 13,
+    lineHeight: 19,
+    marginBottom: 12,
+  },
+  skillsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
+    gap: 8,
+    marginBottom: 12,
   },
-  techItem: {
-    width: '47%',
-    padding: 16,
-    borderRadius: 12,
+  skillTag: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+  },
+  skillText: {
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  socialLink: {
+    paddingTop: 12,
+    borderTopWidth: 1,
+    alignItems: 'flex-start',
+  },
+  contributeSection: {
+    marginHorizontal: 12,
+    marginBottom: 12,
+    borderRadius: 16,
+    paddingVertical: 32,
+    paddingHorizontal: 20,
     alignItems: 'center',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
   },
-  techName: {
-    fontSize: 14,
-    fontWeight: '500',
-    marginTop: 8,
+  contributeTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 12,
+    textAlign: 'center',
   },
   contributeText: {
     fontSize: 14,
+    color: 'rgba(255,255,255,0.9)',
+    textAlign: 'center',
+    marginBottom: 20,
     lineHeight: 20,
-    marginBottom: 16,
   },
   contributeButton: {
+    backgroundColor: '#fff',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 20,
     paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 8,
-    gap: 8,
+    borderRadius: 24,
   },
   contributeButtonText: {
-    color: '#fff',
     fontSize: 14,
     fontWeight: '600',
   },
