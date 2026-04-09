@@ -221,14 +221,14 @@ const HelpScreen = ({ navigation }) => {
         <View style={styles.resourcesSection}>
           <TouchableOpacity 
             style={[styles.resourceCard, { backgroundColor: colors.bgCard }]}
-            onPress={() => Linking.openURL('https://translatalk.com/userManual/usermanual.html')}
+            onPress={() => navigation.navigate('UserManual')}
           >
             <Ionicons name="book" size={32} color={colors.primary} style={{ marginBottom: 12 }} />
             <Text style={[styles.resourceTitle, { color: colors.textPrimary }]}>
-              Documentation
+              User Manual
             </Text>
             <Text style={[styles.resourceDesc, { color: colors.textSecondary }]}>
-              Comprehensive guides and tutorials
+              Complete guide to using TranslaTalk
             </Text>
           </TouchableOpacity>
 

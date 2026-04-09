@@ -28,7 +28,11 @@ export const ThemeProvider = ({ children }) => {
   };
 
   const isDark = theme === 'dark';
-  const colors = isDark ? COLORS.dark : COLORS.light;
+  const baseColors = isDark ? COLORS.dark : COLORS.light;
+  const colors = {
+    ...baseColors,
+    primary: '#667eea', // Add primary color for components
+  };
 
   const value = { theme, toggleTheme, isDark, colors };
 

@@ -26,6 +26,7 @@ import HelpScreen from '../screens/HelpScreen/HelpScreen';
 import FeedbackScreen from '../screens/FeedbackScreen/FeedbackScreen';
 import PrivacyScreen from '../screens/PrivacyScreen/PrivacyScreen';
 import TermsScreen from '../screens/TermsScreen/TermsScreen';
+import UserManualScreen from '../screens/UserManualScreen/UserManualScreen';
 
 const Stack = createStackNavigator();
 
@@ -77,6 +78,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Feedback" component={FeedbackScreen} />
         <Stack.Screen name="Privacy" component={PrivacyScreen} />
         <Stack.Screen name="Terms" component={TermsScreen} />
+        <Stack.Screen name="UserManual" component={UserManualScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
