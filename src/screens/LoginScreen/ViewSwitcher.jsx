@@ -27,7 +27,7 @@ const ViewSwitcher = ({ currentView, onViewChange }) => {
           style={[
             styles.tab,
             currentView === tab.id && {
-              backgroundColor: isDark ? colors.bgCard : '#fff',
+              backgroundColor: isDark ? colors.bgCard : '#ffffff',
               ...styles.activeTab,
             },
           ]}

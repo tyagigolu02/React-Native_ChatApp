@@ -1,0 +1,82 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    paddingTop: 48,
+    borderBottomWidth: 1,
+  },
+  backButton: { marginRight: 16 },
+  headerTitle: { fontSize: 20, fontWeight: '600' },
+  content: { flex: 1 },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    gap: 8,
+  },
+  searchInput: { flex: 1, fontSize: 14 },
+  infoBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    padding: 12,
+    marginHorizontal: 16,
+    marginVertical: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+  },
+  infoBannerText: {
+    flex: 1,
+    fontSize: 12,
+    lineHeight: 18,
+  },
+  listContent: { paddingBottom: 16 },
+  userItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 12,
+    borderBottomWidth: 1,
+  },
+  userInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  avatarContainer: { marginRight: 12 },
+  avatar: { width: 48, height: 48, borderRadius: 24 },
+  avatarPlaceholder: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  avatarText: { color: '#fff', fontSize: 16, fontWeight: '600' },
+  userDetails: { flex: 1 },
+  userName: { fontSize: 16, fontWeight: '600', marginBottom: 2 },
+  userEmail: { fontSize: 13, marginBottom: 2 },
+  blockedDate: { fontSize: 11 },
+  unblockButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 6,
+  },
+  unblockButtonText: { color: '#fff', fontSize: 13, fontWeight: '600' },
+  emptyState: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 32,
+  },
+  emptyTitle: { fontSize: 20, fontWeight: 'bold', marginTop: 16 },
+  emptySubtitle: { fontSize: 14, marginTop: 8, textAlign: 'center' },
+});
+
+export default styles;

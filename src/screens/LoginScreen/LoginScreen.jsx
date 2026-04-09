@@ -34,14 +34,12 @@ const LoginScreen = ({ navigation }) => {
   const [currentView, setCurrentView] = useState(VIEW_TYPES.LOGIN);
   const [pendingEmail, setPendingEmail] = useState('');
 
-  // Show sidebar on tablets/large screens (width >= 768)
   const showSidebar = width >= 768;
 
   const handleLogin = async ({ email, password }) => {
     try {
       const response = await loginUser(email, password);
       
-      // If 2FA is enabled, show OTP screen
       if (response.requiresOTP) {
         setPendingEmail(email);
         setCurrentView(VIEW_TYPES.OTP);
@@ -49,7 +47,6 @@ const LoginScreen = ({ navigation }) => {
         return;
       }
 
-      // Otherwise, login directly
       await login(response.token, response.user);
       Alert.alert('Success', 'Login successful!');
     } catch (error) {
@@ -61,7 +58,6 @@ const LoginScreen = ({ navigation }) => {
     try {
       const response = await signupUser(email, password, `${firstName} ${lastName}`);
       
-      // After signup, show OTP verification
       setPendingEmail(email);
       setCurrentView(VIEW_TYPES.OTP);
       Alert.alert('OTP Sent', 'Please check your email to verify your account');
@@ -147,12 +143,10 @@ const LoginScreen = ({ navigation }) => {
     <View style={[styles.container, { backgroundColor: colors.bgSecondary }]}>
       <StatusBar style={colors.isDark ? 'light' : 'dark'} />
       <View style={styles.mainContainer}>
-        {/* AuthSidebar - shown on tablets/large screens */}
         {showSidebar && (
           <AuthSidebar isSignup={currentView === VIEW_TYPES.SIGNUP} />
         )}
-        
-        {/* Form Section */}
+
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={[styles.keyboardView, showSidebar && styles.formHalf]}
@@ -163,7 +157,6 @@ const LoginScreen = ({ navigation }) => {
             showsVerticalScrollIndicator={false}
           >
             <View style={styles.formContainer}>
-              {/* Theme Toggle */}
               <View style={styles.themeToggleContainer}>
                 <ThemeToggle />
               </View>
