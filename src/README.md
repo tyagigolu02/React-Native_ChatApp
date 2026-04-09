@@ -1,19 +1,120 @@
-# TranslaTalk Project Architecture Guidelines
+# TranslaTalk
 
-This project follows a strict modular structure to maintain scalability and clean code (Max 200 lines per file where possible).
+**TranslaTalk** is a modern React Native chat experience built with Expo. It combines messaging, real-time translation, profile management, secure chat utilities, and a polished theme system into one mobile-first communication app.
 
-## Folder Definitions: What goes where?
+## Overview
 
-- **`src/assets/`**: Raw static files. Contains images (logos, icons), custom fonts, and static data JSONs.
-- **`src/components/`**: Pure UI elements that are reusable. Examples: Buttons, TextInputs, ChatBubble, CustomModal.
-  - *Rule for 200-line adherence:* Reusable components must not contain complex business logic or fetch data. They should only receive props. If a component gets too large (renders too many sub-elements), break it into smaller sub-components.
-- **`src/constants/`**: App-wide static values. Config.js (API URLs), API keys, theme colors (if not using ThemeProvider), standard spacing values.
-- **`src/context/`**: Global State Management providers. AuthContext, ThemeContext, SettingsContext.
-- **`src/hooks/`**: Custom React Hooks for encapsulating logic. useAuth, useChat, useTranslate API.
-  - *Key for 200-line adherence:* Move ANY complex logic (state management, API calls, error handling) FROM a Screen TO a Custom Hook here.
-- **`src/navigation/`**: Routing configuration. Defines Stack, Tab, and Drawer Navigators. MainNavigator.js, AuthNavigator.js.
-- **`src/screens/`**: Full page views. HomeScreen, ChatScreen, LoginScreen. These are *containers* that assemble UI components.
-  - *Rule for 200-line adherence:* Screens must be "thin." They should only manage state by calling Custom Hooks (`src/hooks/`) and render UI by importing Components (`src/components/`). No logic should be written directly here.
-- **`src/services/`**: External API Interactions. Define Axios instances or DeepL API client classes/functions here. *Never call API endpoints directly from Screens/Hooks without a Service.*
-- **`src/theme/`**: Stylistic foundations. Contains colors.js, fonts.js, overall StyleSheet templates for global usage.
-- **`src/utils/`**: Helper Functions. Contains pure utility functions like date formatter (formatChatTime.js), string manipulation, validator functions.
+TranslaTalk is designed to break language barriers and make cross-language communication feel natural. The app starts with a branded landing experience, supports authentication and profile sync, and then routes users into a chat workspace with rich conversation tools and account settings.
+
+## Key Features
+
+| Feature | Description |
+| --- | --- |
+| Real-time translation | Translate messages instantly into the selected language. |
+| Auth & profile sync | Sign in, register, and keep profile data synced with the backend. |
+| Chat workspace | Browse conversations, open chat windows, and switch between chats on desktop or mobile layouts. |
+| Theme support | Light and dark mode with persisted user preference. |
+| Secure storage | Uses AsyncStorage for auth state and theme preference. |
+| Advanced chat sections | Archived chats, hidden chats, blocked users, group info, add contact, and new chat flows. |
+| Vault settings | Dedicated secure vault-related settings and profile controls. |
+| Support pages | About, Help, Feedback, Privacy, Terms, Developers, and User Manual screens. |
+| Rich UX | Splash screen, custom fonts, haptics, gradients, blur, and animated UI elements. |
+
+## Tech Stack
+
+- **Framework:** React Native
+- **Platform:** Expo
+- **Navigation:** React Navigation
+- **State & persistence:** React Context + AsyncStorage
+- **Animations & UI:** Animated API, Expo Linear Gradient, Expo Blur, Lottie
+- **Media & utilities:** Expo Image Picker, Expo Haptics, Expo Font, Expo Splash Screen
+- **Networking:** Fetch API and `socket.io-client` dependency
+
+## Project Structure
+
+```text
+src/
+  assets/       Static images, icons, fonts, and JSON assets
+  components/   Reusable UI building blocks
+  constants/    App-wide configuration values
+  context/      Global state providers
+  hooks/        Feature-specific logic hooks
+  navigation/   App navigation setup
+  screens/      Full-screen app views
+  theme/        Color and styling foundations
+  utils/        Shared helper functions
+```
+
+## Main Screens
+
+- **Landing** - marketing-style welcome screen with theme toggle
+- **Login** - authentication flow
+- **Chat** - main conversation workspace
+- **Profile / Settings** - account and app preferences
+- **New Chat / Add Contact** - start conversations and manage contacts
+- **Archived / Hidden / Blocked** - conversation privacy and organization
+- **Vault Settings** - secure vault configuration
+- **About / Help / Feedback / Privacy / Terms / User Manual** - support and product documentation
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+- Expo Go, Android Studio, or Xcode depending on the target platform
+
+### Install
+
+```bash
+npm install
+```
+
+### Run
+
+```bash
+npm start
+npm run android
+npm run ios
+npm run web
+```
+
+## Configuration
+
+The backend base URL is defined in:
+
+```text
+src/constants/Config.js
+```
+
+By default, it points to a local development server:
+
+```js
+export const API_URL = 'http://127.0.0.1:8001';
+```
+
+Update this value before building for another environment.
+
+## App Behavior Notes
+
+- App startup preloads fonts, static assets, and essential backend data.
+- Authentication state is restored from local storage on launch.
+- Theme preference persists between sessions.
+- The chat screen adapts to mobile and larger screens by showing either the sidebar or split view.
+
+## Brand & Design Notes
+
+TranslaTalk uses:
+
+- a purple-blue brand gradient,
+- custom splash and app icons,
+- a clean modular screen architecture,
+- and a strong focus on readability and multilingual communication.
+
+## Contributing
+
+Keep changes modular, reusable, and screen-focused. Follow the existing folder conventions in `src/` and keep business logic in hooks or context providers rather than inside screens.
+
+## License
+
+No license has been specified in this repository yet.
