@@ -493,4 +493,220 @@ export const userManualSections = [
       },
     ],
   },
+
+  {
+    id: 14,
+    title: 'Voice & Video Calls',
+    description:
+      'Make high-quality voice and video calls with friends. Enjoy crystal-clear audio and video with end-to-end encryption.',
+    steps: [
+      {
+        title: 'Open a Chat',
+        description: 'Select a contact or group to initiate a call.',
+      },
+      {
+        title: 'Tap the Call Icon',
+        description: 'Press the phone icon for voice call or camera icon for video call.',
+      },
+      {
+        title: 'Wait for Answer',
+        description: 'Wait for the recipient to accept your call invitation.',
+      },
+      {
+        title: 'End the Call',
+        description: 'Tap the end call button (red icon) to disconnect.',
+      },
+    ],
+    // ADD IMAGE: Screenshot of voice call interface showing call buttons and duration
+    // ADD IMAGE: Screenshot of video call with participant video stream
+    // ADD IMAGE: Screenshot of call ended confirmation
+    images: [],
+    keyPoints: [
+      'Ensure you have a stable internet connection for quality calls',
+      'All calls are encrypted for maximum privacy and security',
+      'You can switch between audio and video during a call',
+      'Group calls support up to 10 participants simultaneously',
+    ],
+  },
+
+  {
+    id: 15,
+    title: 'Group Chats & Conversations',
+    description:
+      'Create and manage group chats with multiple participants. Share files, schedule events, and collaborate with your team.',
+    steps: [
+      {
+        title: 'Create a New Group',
+        description: 'Tap the + button and select "Create Group Chat".',
+      },
+      {
+        title: 'Add Participants',
+        description: 'Search and select contacts to add to your group.',
+      },
+      {
+        title: 'Set Group Name & Icon',
+        description: 'Choose a name and upload a group icon or emoji.',
+      },
+      {
+        title: 'Invite via Link',
+        description: 'Share a unique group link with others to invite them.',
+      },
+    ],
+    // ADD IMAGE: Screenshot of group chat creation screen
+    // ADD IMAGE: Screenshot of participant selection interface
+    // ADD IMAGE: Screenshot of group settings and member list
+    // ADD IMAGE: Screenshot of shared group link
+    images: [],
+    keyPoints: [
+      'Group admins can manage members, settings, and content',
+      'Mute notifications for groups without leaving the conversation',
+      'Pin important messages for easy reference',
+      'Export group chat history for backup',
+    ],
+  },
+
+  {
+    id: 16,
+    title: 'Message Search & Archive',
+    description:
+      'Quickly find specific messages and archive old conversations. Keep your chat list organized with powerful search features.',
+    steps: [
+      {
+        title: 'Open Search',
+        description: 'Tap the search icon at the top of your chat list.',
+      },
+      {
+        title: 'Enter Keywords',
+        description: 'Type the message content, contact name, or date to search.',
+      },
+      {
+        title: 'Filter Results',
+        description: 'Use filters to narrow down by date, sender, or message type.',
+      },
+      {
+        title: 'Archive Conversations',
+        description: 'Swipe left on a chat and tap Archive to hide it from main list.',
+      },
+    ],
+    // ADD IMAGE: Screenshot of search bar with search field active
+    // ADD IMAGE: Screenshot of search results displaying matched messages
+    // ADD IMAGE: Screenshot of search filter options
+    // ADD IMAGE: Screenshot of archive action menu
+    images: [],
+    keyPoints: [
+      'Search works across all your messages including old archived chats',
+      'Archive keeps messages safe without deleting them',
+      'Use advanced search operators for complex queries',
+      'View archived chats by scrolling to the bottom of chat list',
+    ],
+  },
+
+  {
+    id: 17,
+    title: 'Settings & Preferences',
+    description:
+      'Customize your TranslaTalk experience with personalized settings. Adjust notifications, privacy, appearance, and more.',
+    steps: [
+      {
+        title: 'Access Settings',
+        description: 'Tap the menu icon and select "Settings".',
+      },
+      {
+        title: 'Choose Category',
+        description: 'Navigate to Account, Privacy, Notifications, or Appearance sections.',
+      },
+      {
+        title: 'Adjust Preferences',
+        description: 'Toggle features on/off and select your preferred options.',
+      },
+      {
+        title: 'Save Changes',
+        description: 'Changes are automatically saved to your account.',
+      },
+    ],
+    // ADD IMAGE: Screenshot of settings main menu
+    // ADD IMAGE: Screenshot of privacy settings options
+    // ADD IMAGE: Screenshot of notification preferences
+    // ADD IMAGE: Screenshot of appearance/theme selection
+    images: [],
+    keyPoints: [
+      'Customize notification sounds and vibration patterns',
+      'Control who can see your profile and online status',
+      'Switch between light, dark, and auto theme modes',
+      'Manage app permissions for camera, microphone, and storage',
+    ],
+  },
+
+  {
+    id: 18,
+    title: 'Account Security & Privacy',
+    description:
+      'Protect your account with strong security measures. Enable two-factor authentication and manage your privacy settings.',
+    steps: [
+      {
+        title: 'Enable Two-Factor Authentication',
+        description: 'Go to Settings > Security and toggle 2FA on.',
+      },
+      {
+        title: 'Choose Verification Method',
+        description: 'Select authenticator app, SMS, or email verification.',
+      },
+      {
+        title: 'Manage Privacy Settings',
+        description: 'Control who can contact you and see your information.',
+      },
+      {
+        title: 'Review Active Sessions',
+        description: 'Check logged-in devices and sign out from unused sessions.',
+      },
+    ],
+    // ADD IMAGE: Screenshot of 2FA setup screen
+    // ADD IMAGE: Screenshot of authentication method options
+    // ADD IMAGE: Screenshot of privacy control toggles
+    // ADD IMAGE: Screenshot of active sessions list
+    images: [],
+    keyPoints: [
+      'Two-factor authentication significantly improves account security',
+      'Never share your verification codes with anyone',
+      'Regularly review active sessions to detect unauthorized access',
+      'Block users to prevent them from contacting you',
+    ],
+  },
+
+  {
+    id: 19,
+    title: 'File Sharing & Media',
+    description:
+      'Share photos, videos, documents, and files securely. Manage your media library and download important files.',
+    steps: [
+      {
+        title: 'Share Media in Chat',
+        description: 'Tap the + button next to the message field.',
+      },
+      {
+        title: 'Select File Type',
+        description: 'Choose photos, videos, documents, or location to share.',
+      },
+      {
+        title: 'Add Captions',
+        description: 'Write descriptions or captions before sending files.',
+      },
+      {
+        title: 'Manage Downloads',
+        description: 'Long-press files to save, forward, or delete them.',
+      },
+    ],
+    // ADD IMAGE: Screenshot of file share menu with options
+    // ADD IMAGE: Screenshot of photo/video selection interface
+    // ADD IMAGE: Screenshot of file preview before sending
+    // ADD IMAGE: Screenshot of saved files gallery
+    images: [],
+    keyPoints: [
+      'All files are encrypted during transfer for security',
+      'Set expiration time for shared files to auto-delete',
+      'Create backup of important documents through downloads',
+      'Share multiple files at once for convenience',
+    ],
+  },
 ];
+
