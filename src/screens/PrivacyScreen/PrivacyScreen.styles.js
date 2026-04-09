@@ -53,10 +53,21 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 12,
   },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 12,
+    gap: 8,
+  },
+  sectionNumber: {
+    fontSize: 16,
+    fontWeight: '700',
+    marginTop: 2,
+  },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700',
-    marginBottom: 12,
+    flex: 1,
   },
   itemsList: {
     gap: 8,

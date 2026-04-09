@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   ScrollView,
   Switch,
@@ -11,6 +10,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../context/ThemeContext';
 import { useScreenTitle } from '../../context/ScreenTitleContext';
+import styles from './SettingsScreen.styles';
 
 const SettingsScreen = ({ navigation }) => {
   useScreenTitle('TranslaTalk | Settings');
@@ -70,69 +70,6 @@ const SettingsScreen = ({ navigation }) => {
             value={isDark}
             onToggle={toggleTheme}
           />
-        </View>
-
-        {/* Notifications Section */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            Notifications
-          </Text>
-          <SettingRow
-            icon="notifications-outline"
-            title="Push Notifications"
-            value={notifications}
-            onToggle={() => setNotifications(!notifications)}
-          />
-          <SettingRow
-            icon="volume-high-outline"
-            title="Notification Sounds"
-            value={soundEnabled}
-            onToggle={() => setSoundEnabled(!soundEnabled)}
-          />
-        </View>
-
-        {/* Privacy & Security */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            Privacy & Security
-          </Text>
-          <SettingRow
-            icon="shield-outline"
-            title="Privacy Policy"
-            hasChevron
-            onPress={() => navigation.navigate('Privacy')}
-          />
-          <SettingRow
-            icon="document-text-outline"
-            title="Terms of Service"
-            hasChevron
-            onPress={() => navigation.navigate('Terms')}
-          />
-          <SettingRow
-            icon="ban-outline"
-            title="Blocked Users"
-            hasChevron
-            onPress={() => navigation.navigate('BlockedUsers')}
-          />
-        </View>
-
-        {/* Help & Support */}
-        <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-          <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>
-            Help & Support
-          </Text>
-          <SettingRow
-            icon="information-circle-outline"
-            title="About"
-            hasChevron
-            onPress={() => navigation.navigate('About')}
-          />
-          <SettingRow
-            icon="help-circle-outline"
-            title="Help Center"
-            hasChevron
-            onPress={() => navigation.navigate('Help')}
-          />
           <SettingRow
             icon="chatbubble-outline"
             title="Send Feedback"
@@ -144,68 +81,5 @@ const SettingsScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    paddingTop: 48,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 3,
-  },
-  backButton: {
-    padding: 4,
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  scrollContent: {
-    padding: 16,
-    gap: 16,
-  },
-  section: {
-    borderRadius: 12,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    padding: 16,
-    paddingBottom: 8,
-  },
-  settingRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    borderBottomWidth: 1,
-  },
-  settingLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    flex: 1,
-  },
-  settingTitle: {
-    fontSize: 15,
-    fontWeight: '500',
-  },
-});
 
 export default SettingsScreen;
