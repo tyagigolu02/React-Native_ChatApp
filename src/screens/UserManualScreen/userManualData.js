@@ -28,7 +28,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/signUp.png'),
+        source: require('../../assets/userManual/signUp.png'),
         caption: 'Sign-up screen with account creation options',
       },
     ],
@@ -65,7 +65,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/logIn.png'),
+        source: require('../../assets/userManual/logIn.png'),
         caption: 'Login page interface',
       },
     ],
@@ -106,7 +106,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/profile.png'),
+        source: require('../../assets/userManual/profile.png'),
         caption: 'User profile view with personal information',
       },
     ],
@@ -137,15 +137,15 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/addContact01.jpeg'),
+        source: require('../../assets/userManual/addContact01.jpeg'),
         caption: 'Step 1: Contact search interface',
       },
       {
-        source: require('../../../assets/userManual/addContact02.jpeg'),
+        source: require('../../assets/userManual/addContact02.jpeg'),
         caption: 'Step 2: Friend request preview',
       },
       {
-        source: require('../../../assets/userManual/addContact03.jpeg'),
+        source: require('../../assets/userManual/addContact03.jpeg'),
         caption: 'Step 3: Confirmation and messaging',
       },
     ],
@@ -164,7 +164,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/trafficLight.jpeg'),
+        source: require('../../assets/userManual/trafficLight.jpeg'),
         caption: 'Message status indicators - Red, Yellow, Green system',
       },
     ],
@@ -212,11 +212,11 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/langTrans.jpeg'),
+        source: require('../../assets/userManual/langTrans.jpeg'),
         caption: 'Translation feature interface',
       },
       {
-        source: require('../../../assets/userManual/translated.png'),
+        source: require('../../assets/userManual/translated.png'),
         caption: 'Translated message display',
       },
     ],
@@ -253,7 +253,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/scheduleMsg.jpeg'),
+        source: require('../../assets/userManual/scheduleMsg.jpeg'),
         caption: 'Message scheduling interface',
       },
     ],
@@ -305,7 +305,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/vault.jpeg'),
+        source: require('../../assets/userManual/vault.jpeg'),
         caption: 'Personal vault with secure storage options',
       },
     ],
@@ -340,7 +340,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/attachements.png'),
+        source: require('../../assets/userManual/attachements.png'),
         caption: 'Media attachment options',
       },
     ],
@@ -381,7 +381,7 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/voice call.png'),
+        source: require('../../assets/userManual/voice call.png'),
         caption: 'Voice and video call interface',
       },
     ],
@@ -416,15 +416,15 @@ export const userManualSections = [
     ],
     images: [
       {
-        source: require('../../../assets/userManual/settings01.jpeg'),
+        source: require('../../assets/userManual/settings01.jpeg'),
         caption: 'Settings page - General options',
       },
       {
-        source: require('../../../assets/userManual/settings02.jpeg'),
+        source: require('../../assets/userManual/settings02.jpeg'),
         caption: 'Settings page - Privacy options',
       },
       {
-        source: require('../../../assets/userManual/settings03.jpeg'),
+        source: require('../../assets/userManual/settings03.jpeg'),
         caption: 'Settings page - Notification options',
       },
     ],

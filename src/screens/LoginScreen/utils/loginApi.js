@@ -1,4 +1,4 @@
-import { API_URL } from '../../../config';
+import { API_URL } from '../../../constants/Config';
 
 // API integration functions for authentication
 
