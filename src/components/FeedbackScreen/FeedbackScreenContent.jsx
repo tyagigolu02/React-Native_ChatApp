@@ -60,7 +60,7 @@ const FeedbackScreenContent = ({
       </View>
 
       <View style={[styles.section, { backgroundColor: colors.bgCard }]}>
-        <Text style={[styles.label, { color: colors.textPrimary }]}>Email (Optional)</Text>
+        <Text style={[styles.label, { color: colors.textPrimary }]}>Email <Text style={styles.required}>*</Text></Text>
         <TextInput
           style={[styles.input, { backgroundColor: colors.bgSecondary, color: colors.textPrimary, borderColor: colors.border }]}
           placeholder="your.email@example.com"

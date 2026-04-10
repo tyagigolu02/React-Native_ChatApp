@@ -7,11 +7,6 @@
     "icon": "./src/assets/icon.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./src/assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#667eea"
-    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.translatalk.app"

@@ -25,16 +25,46 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
 
-  const login = (userData) => {
-    setCurrentUser(userData);
-    setIsAuthenticated(true);
-    AsyncStorage.setItem('currentUser', JSON.stringify(userData));
-    return { success: true };
+const login = async (username, password) => {
+    setIsLoading(true);
+    try {
+      // Django ke login endpoint par request (Apne django url ke hisab se change kar lena)
+      const response = await apiClient.post('/token/', {
+        username,
+        password,
+      });
+
+      if (response.data.access) {
+        let token = response.data.access;
+        setUserToken(token);
+        setUserInfo(response.data.user); // Agar tera backend user data bhejta hai
+        
+        // Token phone ki memory mein save kar lo
+        await AsyncStorage.setItem('userToken', token);
+        await AsyncStorage.setItem('userInfo', JSON.stringify(response.data.user));
+        
+        console.log("Login Success!");
+      }
+    } catch (e) {
+      console.error(`Login error: ${e.response?.data?.detail || e.message}`);
+      alert("Login Failed: Please check username and password.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const logout = async () => {
+    setIsLoading(true);
+    setUserToken(null);
+    setUserInfo(null);
+    await AsyncStorage.removeItem('userToken');
+    await AsyncStorage.removeItem('userInfo');
+    setIsLoading(false);
   };
 
   const register = async (userData) => {
     try {
-      const response = await fetch(`${API_URL}/chat/register/`, {
+      const response = await fetch(`${API_BASE_URL}/chat/register/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' },
         body: JSON.stringify({
@@ -50,13 +80,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       return { success: false, error: 'Cannot connect to server' };
     }
-  };
-
-  const logout = async () => {
-    setCurrentUser(null);
-    setIsAuthenticated(false);
-    await AsyncStorage.removeItem('currentUser');
-  };
+  }
 
   const updateUser = async (updatedData) => {
     const updatedUser = { ...currentUser, ...updatedData };

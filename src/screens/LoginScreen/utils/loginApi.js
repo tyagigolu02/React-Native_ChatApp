@@ -4,7 +4,7 @@ import { API_URL } from '../../../constants/Config';
 
 export const loginUser = async (email, password) => {
   try {
-    const response = await fetch(`${API_URL}/auth/login`, {
+    const response = await fetch(`${API_URL}/chat/login/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export const loginUser = async (email, password) => {
 
 export const signupUser = async (email, password, username) => {
   try {
-    const response = await fetch(`${API_URL}/auth/signup`, {
+    const response = await fetch(`${API_URL}/chat/register/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export const signupUser = async (email, password, username) => {
 
 export const verifyOTP = async (email, otp) => {
   try {
-    const response = await fetch(`${API_URL}/auth/verify-otp`, {
+    const response = await fetch(`${API_URL}/chat/verify-email/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
